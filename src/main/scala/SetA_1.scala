@@ -23,12 +23,12 @@ object SetA_1 {
     //println(rdd1.getNumPartitions)
     val rdd2 = rdd1.map( x => x.split(","))
     val rdd3 = rdd2.map( x=> (x(1),x(3)))
-    val rdd4 = rdd3.reduceByKey((x,y) => (x.toInt + y.toInt.toInt).toString)
+    val rdd4 = rdd3.reduceByKey((x,y) => (x.toInt + y.toInt).toString)
     val rdd5 = rdd4.collect()
 
     for ( i <- rdd5 )
       {
-        println(s"Total order for customer ${i._1} is ${i._2} ")
+        println(s"Total cost of order for customer ${i._1} is Rs ${i._2} ")
       }
 
   }
